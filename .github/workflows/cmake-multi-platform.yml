@@ -17,11 +17,13 @@ jobs:
       # 1. <Windows, Release, latest MSVC compiler toolchain on the default runner image, default generator>
       # 2. <Linux, Release, latest GCC compiler toolchain on the default runner image, default generator>
       # 3. <Linux, Release, latest Clang compiler toolchain on the default runner image, default generator>
-      # 4. <Windows, Release, MSYS2 MINGW64 GCC compiler>
-      # 5. <Windows, Release, MSYS2 MINGW64 Clang compiler>
-      # 6. <Windows, Release, MSYS2 UCRT64 GCC compiler>
-      # 7. <Windows, Release, MSYS2 UCRT64 Clang compiler>
-      # 8. <Windows, Release, MSYS2 CLANG64 Clang compiler>
+      # 4. <Linux ARM64, Release, latest GCC compiler toolchain, default generator>
+      # 5. <Linux ARM64, Release, latest Clang compiler toolchain, default generator>
+      # 6. <Windows, Release, MSYS2 MINGW64 GCC compiler>
+      # 7. <Windows, Release, MSYS2 MINGW64 Clang compiler>
+      # 8. <Windows, Release, MSYS2 UCRT64 GCC compiler>
+      # 9. <Windows, Release, MSYS2 UCRT64 Clang compiler>
+      # 10. <Windows, Release, MSYS2 CLANG64 Clang compiler>
       #
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -38,6 +40,14 @@ jobs:
             cpp_compiler: g++
           # Ubuntu clang
           - os: ubuntu-latest
+            c_compiler: clang
+            cpp_compiler: clang++
+          # Ubuntu ARM64 GCC
+          - os: ubuntu-24.04-arm64
+            c_compiler: gcc
+            cpp_compiler: g++
+          # Ubuntu ARM64 Clang
+          - os: ubuntu-24.04-arm64
             c_compiler: clang
             cpp_compiler: clang++
           # MSYS2 MINGW64 + GCC
